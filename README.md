@@ -54,6 +54,7 @@ var Json_RecordJs={
 ```
 ### :white_check_mark: Initialization of the plugin
 To initialize the plugin, you only need to call the ``` RecordJs_Init() ``` function, which will have to take as parameter the variable ```Json_RecordJs``` in the JSON form of parameterization, after importing the RecorderJs resource.  It will come down to this:  
+
 ```javascript
 <script src='RecorderJs.js'></script>
 
@@ -72,6 +73,85 @@ var Json_RecordJs={
 
   'Download': true
 }
+
 RecordJs_Init(Json_RecordJs)
+
+```
+### :red_circle:Highly important
+If you are not using the download function, i.e. the value assigned to ```Download ``` is ```false```, you need to add this code to generate a form that would return the url of the video once the user has submitted the video :
+
+```javascript
+ 
+ document.querySelector('#next-rec').onclick=(e)=>{
+  var url_video=document.querySelector('#Url_video').value
+  e.preventDefault()
+  console(url_video)
+}
+
+
+```
+
+## :computer:Code example
+
+### Sample code (with download)
+[view example online](https://recorderjsd.netlify.app)
+ ```javascript
+ 
+<script type="text/javascript" src="RecordJs.js"></script>
+
+<script type="text/javascript">
+
+var Json_RecordJs={
+  'Start_Btn': {'class':'btn btn-success', 'value':'Démarrer l\'enrégistrement'},
+  'Stop_Btn': { "class":"btn btn-danger", "value":"Sauvégarder"},
+  'Next_Btn': { "class":"btn btn-primary", "value":"Étape suivante"},
+  'Message': 
+  {
+        "befor_html":" Démarrer l'enrégistrement ",
+        "in_html":"<p class='alert alert-danger'>En cours d'enrégistrement</p>",
+        "after_html":"<p class='alert alert-success'>Enrégistrement ok</p>",
+        "erreur_text":"Autorisé la webcam pour contunier"
+  },
+
+  'Download': true
+}
+
+RecordJs_Init(Json_RecordJs)
+
+</script>
+
+```
+### Sample code (no download)
+[view example online](https://recorderjs.netlify.app)
+ ```javascript
+ 
+<script type="text/javascript" src="RecordJs.js"></script>
+
+<script type="text/javascript">
+
+var Json_RecordJs={
+  'Start_Btn': {'class':'btn btn-success', 'value':'Démarrer l\'enrégistrement'},
+  'Stop_Btn': { "class":"btn btn-danger", "value":"Sauvégarder"},
+  'Next_Btn': { "class":"btn btn-primary", "value":"Étape suivante"},
+  'Message': 
+  {
+        "befor_html":" Démarrer l'enrégistrement ",
+        "in_html":"<p class='alert alert-danger'>En cours d'enrégistrement</p>",
+        "after_html":"<p class='alert alert-success'>Enrégistrement ok</p>",
+        "erreur_text":"Autorisé la webcam pour contunier"
+  },
+
+  'Download': false
+}
+
+RecordJs_Init(Json_RecordJs)
+
+document.querySelector('#next-rec').onclick=(e)=>{
+var url_video=document.querySelector('#Url_video').value
+  e.preventDefault()
+  console(url_video)
+}
+
+</script>
 
 ```
