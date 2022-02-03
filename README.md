@@ -14,13 +14,13 @@ var Json_RecordJs={
   'Next_Btn': { "class":"btn btn-primary", "value":"Étape suivante"},
   'Message': 
   {
-        "befor_html":" Démarrer l'enrégistrement ",
-        "in_html":"<p class='alert alert-danger'>En cours d'enrégistrement</p>",
+        "befor_html":" Démarrer l'enregistrement ",
+        "in_html":"<p class='alert alert-danger'>En cours d'enregistrement</p>",
         "after_html":"<p class='alert alert-success'>Enregistrement ok</p>",
         "erreur_text":"Autorisé la webcam pour continuer"
   },
 
-  'Download': false
+  'Download': true
 }
 
 ```
@@ -35,3 +35,43 @@ The Next_Btn button is only used in case you don't allow the user to upload the 
 * The ```in_html``` is the message displayed during the recording
 * The ```after_html``` is the message display after registration
 * The ```erreur_text``` in Text format and not HTML, is the message that will be displayed if the user does not authorize his webcam and microphone.
+### :floppy_disk: Download option
+You have the possibility to use the download function and in this case the user will be able to download the video once registered. To do this, you need to set ```true``` to the download level like this:
+```javascript
+var Json_RecordJs={
+
+   'Download': true
+}
+
+```
+To not allow the user to download and retrieve the video once he has made the recording, you must put ```false``` before download like this: 
+```javascript
+var Json_RecordJs={
+
+   'Download': false
+}
+
+```
+### :white_check_mark: Initialization of the plugin
+To initialize the plugin, you only need to call the ``` RecordJs_Init() ``` function, which will have to take as parameter the variable ```Json_RecordJs``` in the JSON form of parameterization, after importing the RecorderJs resource.  It will come down to this:  
+```javascript
+<script src='RecorderJs.js'></script>
+
+var Json_RecordJs={
+
+  'Start_Btn': {"class":"btn btn-success", "value":"Démarrer l'enrégistrement"},
+  'Stop_Btn': { "class":"btn btn-danger", "value":"Sauvégarder"},
+  'Next_Btn': { "class":"btn btn-primary", "value":"Étape suivante"},
+  'Message': 
+  {
+        "befor_html":" Démarrer l'enregistrement ",
+        "in_html":"<p class='alert alert-danger'>En cours d'enregistrement</p>",
+        "after_html":"<p class='alert alert-success'>Enregistrement ok</p>",
+        "erreur_text":"Autorisé la webcam pour continuer"
+  },
+
+  'Download': true
+}
+RecordJs_Init(Json_RecordJs)
+
+```
