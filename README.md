@@ -9,8 +9,8 @@ Once after importing the RecoderJs resource into your code with the ``` <script 
 
 var Json_RecordJs={
 
-  'Start_Btn': {"class":"btn btn-success", "value":"Démarrer l'enrégistrement"},
-  'Stop_Btn': { "class":"btn btn-danger", "value":"Sauvégarder"},
+  'Start_Btn': {"class":"btn btn-success", "value":"Démarrer l'enregistrement"},
+  'Stop_Btn': { "class":"btn btn-danger", "value":"Sauvegarder"},
   'Next_Btn': { "class":"btn btn-primary", "value":"Étape suivante"},
   'Message': 
   {
